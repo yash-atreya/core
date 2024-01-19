@@ -21,11 +21,10 @@ where
 }
 
 impl Function {
-    /// Creates an Ethereum function from an EVM word's lower 24 bytes
+    /// Creates an Ethereum function from an EVM word's upper 24 bytes
     /// (`word[..24]`).
     ///
-    /// Note that this is different from `Address::from_word`, which uses the
-    /// upper 20 bytes.
+    /// Note that this is different from `Address::from_word`, which uses the lower bytes.
     #[inline]
     #[must_use]
     pub fn from_word(word: FixedBytes<32>) -> Self {
@@ -34,8 +33,7 @@ impl Function {
 
     /// Right-pads the function to 32 bytes (EVM word size).
     ///
-    /// Note that this is different from `Address::into_word`, which left-pads
-    /// the address.
+    /// Note that this is different from `Address::into_word`, which left-pads the address.
     #[inline]
     #[must_use]
     pub fn into_word(&self) -> FixedBytes<32> {

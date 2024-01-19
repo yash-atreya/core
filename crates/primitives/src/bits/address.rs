@@ -117,8 +117,7 @@ impl fmt::Display for Address {
 }
 
 impl Address {
-    /// Creates an Ethereum address from an EVM word's upper 20 bytes
-    /// (`word[12..]`).
+    /// Creates an Ethereum address from an EVM word's lower 20 bytes (`word[12..]`).
     ///
     /// # Examples
     ///
